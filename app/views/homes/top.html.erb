@@ -1,0 +1,100 @@
+<script>
+    $(function(){
+        
+        $("button").click(function(){
+            
+            $(".result").hide();
+
+           
+            var qNum = $("ul li").length;
+
+            if( $("ul li input:checked").length < qNum ){
+               
+                alert("未回答の問題があります");
+            } else {
+                
+                var typeANum = $(".typeA:checked").length,
+                    typeBNum = $(".typeB:checked").length,
+                    typeCNum = $(".typeC:checked").length,
+                    typeDNum = $(".typeD:checked").length;
+                if( typeANum >= typeBNum && typeANum >= typeCNum && typeANum >= typeDNum ) {
+                    
+                    $(".resultA").fadeIn();
+                } else if( typeBNum >= typeANum && typeBNum >= typeCNum && typeBNum >= typeDNum ) {
+                    
+                    $(".resultB").fadeIn();
+                } else if( typeCNum >= typeANum && typeCNum >= typeBNum && typeCNum >= typeDNum ) {
+                    
+                    $(".resultC").fadeIn();
+                } else if( typeDNum >= typeBNum && typeDNum >= typeCNum && typeDNum >= typeANum ) {
+                   
+                    $(".resultD").fadeIn();
+                }
+            }
+        });
+    })
+</script>
+
+  
+
+    <body>
+
+        <div id="wrapper">
+
+            <div class="question">
+                <h1>あなたの今日の昼食は？</h1>
+                <ul>
+                    <li>
+                        <span>Q1. こってりしたものが食べたい</span>
+                        <label><input type="radio" name="q01" class="typeB typeC"> YES</label>
+                        <label><input type="radio" name="q01" class="typeA typeD"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q2. 時間がないからすぐに食べたい</span>
+                        <label><input type="radio" name="q02" class="typeB typeD"> YES</label>
+                        <label><input type="radio" name="q02" class="typeA typeC"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q3. お腹が空いたからガッツリ食べたい</span>
+                        <label><input type="radio" name="q03" class="typeB typeC"> YES</label>
+                        <label><input type="radio" name="q03" class="typeA typeD"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q4. 節約中だから安くおさえたい</span>
+                        <label><input type="radio" name="q04" class="typeB typeD"> YES</label>
+                        <label><input type="radio" name="q04" class="typeA typeC"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q5. ダイエット中だからヘルシーに済ませたい</span>
+                        <label><input type="radio" name="q05" class="typeA typeD"> YES</label>
+                        <label><input type="radio" name="q05" class="typeB typeC"> NO</label>
+                    </li>
+                </ul>
+                <button>診断する</button>
+            </div>
+
+            <div class="second title">
+              <h1>この診断で出てくる投票先は以下の政党のみです</h1>
+            </div>
+            <div class="result resultA">
+                <h2>あなたにオススメの昼食は...<br><strong>和食</strong></h2>
+                <p>ヘルシーに済ませたいあなたには和食がオススメ！一汁三菜の定食メニューだとなおバランスよし。</p>
+            </div>
+            <div class="result resultB">
+                <h2>あなたにオススメの昼食は...<br><strong>ファストフード</strong></h2>
+                <p>手軽にお腹を満たしたいあなたにはファストフードがオススメ！牛丼やハンバーガーでお腹を満たしましょう。</p>
+            </div>
+            <div class="result resultC">
+                <h2>あなたにオススメの昼食は...<br><strong>中華</strong></h2>
+                <p>こってり満腹メニューを食べたいあなたには中華がオススメ！胃もたれが心配なときはウーロン茶を添えて。</p>
+            </div>
+            <div class="result resultD">
+                <h2>あなたにオススメの昼食は...<br><strong>自炊</strong></h2>
+                <p>安くヘルシーに済ませたいあなたには自炊がオススメ！頑張ってお弁当を作りましょう。</p>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
