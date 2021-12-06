@@ -1,33 +1,39 @@
+<% if current_user %>
+    <%= link_to 'ログアウト', logout_path, method: :delete %>
+<% else %>
+    <%= link_to 'ログイン', login_path %>
+<% end %>
+
 <script>
     $(function(){
-        
+
         $("button").click(function(){
-            
+
             $(".result").hide();
 
-           
+
             var qNum = $("ul li").length;
 
             if( $("ul li input:checked").length < qNum ){
-               
+
                 alert("未回答の問題があります");
             } else {
-                
+
                 var typeANum = $(".typeA:checked").length,
                     typeBNum = $(".typeB:checked").length,
                     typeCNum = $(".typeC:checked").length,
                     typeDNum = $(".typeD:checked").length;
                 if( typeANum >= typeBNum && typeANum >= typeCNum && typeANum >= typeDNum ) {
-                    
+
                     $(".resultA").fadeIn();
                 } else if( typeBNum >= typeANum && typeBNum >= typeCNum && typeBNum >= typeDNum ) {
-                    
+
                     $(".resultB").fadeIn();
                 } else if( typeCNum >= typeANum && typeCNum >= typeBNum && typeCNum >= typeDNum ) {
-                    
+
                     $(".resultC").fadeIn();
                 } else if( typeDNum >= typeBNum && typeDNum >= typeCNum && typeDNum >= typeANum ) {
-                   
+
                     $(".resultD").fadeIn();
                 }
             }
@@ -35,7 +41,7 @@
     })
 </script>
 
-  
+
 
     <body>
 
