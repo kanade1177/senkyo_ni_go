@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   
   get "signup" => "users#new"
   
+  resources :tweets do
+    resource :favorites, only: [:create, :destroy]
+  end  
+  
 end
