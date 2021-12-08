@@ -2,7 +2,7 @@ class User < ApplicationRecord
   
   has_secure_password
   
-  attachement :profile
+  attachment :profile
   has_many :tweets
   has_many :favorites
   has_many :user_rooms, dependent: :destroy

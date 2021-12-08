@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_113657) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id"
-    t.string "category", null: false
+    t.integer "category_id", default: 0, null: false
     t.text "body"
     t.string "title"
     t.datetime "created_at", null: false

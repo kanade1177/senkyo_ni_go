@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   
+  get 'favorites/create'
+  get 'favorites/destroy'
   root to: "homes#top"
   
   resources :users, only: [:index, :show, :create, :edit, :update]
