@@ -17,14 +17,14 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
-    @tweet.save
-    redirect_to tweets_path
+    # @tweet.save
+    # redirect_to tweets_path
 
-    # if @tweet.save
-    #   redirect_to tweets_path
-    # else
-    #   render :new
-    # end
+    if @tweet.save
+      redirect_to tweets_path
+    else
+      render :new
+    end
   end
 
   def edit
