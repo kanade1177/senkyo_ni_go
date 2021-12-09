@@ -4,7 +4,7 @@ class User < ApplicationRecord
   
   attachment :profile
   has_many :tweets
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   #自分がフォローしているユーザー関係

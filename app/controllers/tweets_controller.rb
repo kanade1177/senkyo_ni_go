@@ -4,8 +4,8 @@ class TweetsController < ApplicationController
   end
 
   def index
-    # @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc)
-    @tweets = Tweet.all
+    @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc)
+    
 
   end
 
@@ -17,9 +17,8 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
-    # @tweet.save
-    # redirect_to tweets_path
-
+    
+    
     if @tweet.save
       redirect_to tweets_path
     else

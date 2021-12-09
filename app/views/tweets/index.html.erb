@@ -1,1 +1,40 @@
-<h1>test</h1>
+<div class="container">
+ <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 mt-4">
+  <h3>みんなの結果は？</h3>
+   <% @tweets.each do | tweet | %>
+    <div class="card mt-4">
+     <h5 class="card-header">私の結果は... <%= tweet.category_id %>!</h5>
+      <div class="card-body">
+       <h5 class="card-title">
+        <%= link_to tweet_path(tweet.id), class: "text-dark" do %>
+         <strong><%= tweet.title %></strong>
+        <% end %>
+       </h5>
+       <p class="card-text">
+        <%= link_to user_path(tweet.user.id) do %>
+         <%= attachment_image_tag tweet.user, :image_id, format: "jpeg", size: "50x50", fallback:"no_user.jpg",class: "img-fluid rounded-circle" %>
+        <% end %>
+        <span>
+         <%= link_to user_path(tweet.user.id), class: "text-dark" do %>
+          <%= tweet.user.name %>
+         <% end %>
+        </span>
+       </p>
+       <p class="card-text">
+
+        <small id="favorite_buttons_<%= tweet.id %>">
+         <%= render "favorites/favorite", tweet: tweet %>
+        </small>
+        <small class="far fa-clock clock-icon text-muted">
+         <%= time_ago_in_words(tweet.created_at) %>前
+        </small>
+       </p>
+      </div>
+    </div>
+   <% end %>
+   <%= paginate @tweets %>
+  </div>
+ </div>
+</div>
