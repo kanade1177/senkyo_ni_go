@@ -1,0 +1,33 @@
+<div class="profile-container border border-0 shadow  bg-white rounded text-align:center">
+   <%= attachment_image_tag user, :image, size: "150x150",  format: "jpeg",fallback: "no_user.jpg",class: "img-fluid rounded-circle ml-5 mt-2" %>
+   <table class="table mt-4 table-borderless shadow  bg-white rounded">
+     <tbody>
+       <tr></tr>
+       <tr>
+
+         <th><%= user.name %></th>
+       </tr>
+       <tr>
+         <th>
+           <%= link_to "#{user.followings.count}", user_followings_path(user), class: "text-dark" %> フォロー
+          <span>
+           <%= link_to "#{user.followers.count}", user_followers_path(user), class: "text-dark" %> フォロワー
+          </span>
+         </th>
+       </tr>
+       <tr>
+
+         <th><%= user.introduction %></th>
+       </tr>
+       <tr>
+        <th>
+        <% if user.id==current_user.id %>
+        <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-dark btn-block",  method: :get do %>
+         <i class="fas fa-users-cog"></i>
+        <% end %>
+        <% end %>
+        </th>
+       </tr>
+     </tbody>
+   </table>
+</div>

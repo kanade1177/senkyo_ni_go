@@ -1,2 +1,54 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3 mt-4">
+   <%= render "users/user_info", user: @user %>
+   <%= render "users/follow_form", user: @user %>
+   <% if current_user != @user %>
+    <%= link_to chat_path(@user.id), class: "btn btn-outline-dark btn-block mt-3", method: :get do %>
+     <i class="far fa-comments"></i>チャット
+    <% end %>
+   <% end %>
+  </div>
+  <div class="col-md-8 offset-md-1 mt-4">
+
+  <div class="row">
+  <% @tweets.each do | tweet | %>
+  <div class="col-md-10 mt-1">
+    <div class="card mt-4 shadow">
+     <h5 class="card-header">私の結果は... <%= tweet.category_id %>!</h5>
+      <div class="card-body">
+       <h5 class="card-title">
+        <%= link_to tweet_path(tweet.id), class: "text-dark" do %>
+         <strong><%= tweet.title %></strong>
+        <% end %>
+       </h5>
+       
+       </p>
+       <p class="card-text">
+
+        <small id="favorite_buttons_<%= tweet.id %>">
+         <%= render "favorites/favorite", tweet: tweet %>
+        </small>
+        <small class="far fa-clock clock-icon text-muted">
+         <%= time_ago_in_words(tweet.created_at) %>前
+        </small>
+       </p>
+       <p class="card-text">
+        <% unless current_user != @user %>
+        <small>
+          <%= link_to "編集", edit_tweet_path(tweet), class: "btn btn-outline-dark" %>
+        </small>
+        <small>
+          <%= link_to "削除", tweet_path(tweet.id), method: :delete, class: "btn btn-outline-dark", data: {confirm: "削除しますか？"} %>
+        </small>
+        <% end %>
+       </p>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @tweets %>
+  </div>
+  </div>
+ </div>
+</div>
+</div>

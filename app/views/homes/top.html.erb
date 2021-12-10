@@ -1,10 +1,4 @@
-<% if current_user %>
-    <%= link_to 'ログアウト', logout_path, method: :delete %>
-<% else %>
-    <%= link_to 'ログイン', login_path %>
-<% end %>
-
-<script>
+    <script>
     $(function(){
 
         $("button").click(function(){
@@ -44,63 +38,72 @@
 
 
     <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <div id="wrapper">
 
-        <div id="wrapper">
+                <div class="question mt-4">
+                    <h1>あなたにおすすめの政党は？</h1>
+                    <ul>
+                        <li>
+                            <span>Q1. 憲法改正に前向きである</span>
+                            <label><input type="radio" name="q01" class="typeB typeC"> YES</label>
+                            <label><input type="radio" name="q01" class="typeA typeD"> NO</label>
+                        </li>
+                        <li>
+                            <span>Q2. 現状に満足である</span>
+                            <label><input type="radio" name="q02" class="typeB typeD"> YES</label>
+                            <label><input type="radio" name="q02" class="typeA typeC"> NO</label>
+                        </li>
+                        <li>
+                            <span>Q3. 成長より分配である</span>
+                            <label><input type="radio" name="q03" class="typeB typeC"> YES</label>
+                            <label><input type="radio" name="q03" class="typeA typeD"> NO</label>
+                        </li>
+                        <li>
+                            <span>Q4. 夫婦別姓に賛成</span>
+                            <label><input type="radio" name="q04" class="typeB typeD"> YES</label>
+                            <label><input type="radio" name="q04" class="typeA typeC"> NO</label>
+                        </li>
+                        <li>
+                            <span>Q5. 消費税増税は反対</span>
+                            <label><input type="radio" name="q05" class="typeA typeD"> YES</label>
+                            <label><input type="radio" name="q05" class="typeB typeC"> NO</label>
+                        </li>
+                    </ul>
+                    <button>診断する</button>
+                    <small>
+                      <%= link_to "結果をツイート！", signup_path, class: "btn btn-outline-dark" %>
+                    </small>
+                </div>
 
-            <div class="question">
-                <h1>あなたの今日の昼食は？</h1>
-                <ul>
-                    <li>
-                        <span>Q1. こってりしたものが食べたい</span>
-                        <label><input type="radio" name="q01" class="typeB typeC"> YES</label>
-                        <label><input type="radio" name="q01" class="typeA typeD"> NO</label>
-                    </li>
-                    <li>
-                        <span>Q2. 時間がないからすぐに食べたい</span>
-                        <label><input type="radio" name="q02" class="typeB typeD"> YES</label>
-                        <label><input type="radio" name="q02" class="typeA typeC"> NO</label>
-                    </li>
-                    <li>
-                        <span>Q3. お腹が空いたからガッツリ食べたい</span>
-                        <label><input type="radio" name="q03" class="typeB typeC"> YES</label>
-                        <label><input type="radio" name="q03" class="typeA typeD"> NO</label>
-                    </li>
-                    <li>
-                        <span>Q4. 節約中だから安くおさえたい</span>
-                        <label><input type="radio" name="q04" class="typeB typeD"> YES</label>
-                        <label><input type="radio" name="q04" class="typeA typeC"> NO</label>
-                    </li>
-                    <li>
-                        <span>Q5. ダイエット中だからヘルシーに済ませたい</span>
-                        <label><input type="radio" name="q05" class="typeA typeD"> YES</label>
-                        <label><input type="radio" name="q05" class="typeB typeC"> NO</label>
-                    </li>
-                </ul>
-                <button>診断する</button>
-            </div>
+                <div class="second title mt-4">
+                  <h4>この診断で出てくる投票先は以下の政党が候補です(*回答は必ずしも各政党の政策と同じではありません。<br>
+                  是非各政党のHPで政策を確認してみましょう！)
 
-            <div class="second title">
-              <h1>この診断で出てくる投票先は以下の政党のみです</h1>
-            </div>
-            <div class="result resultA">
-                <h2>あなたにオススメの昼食は...<br><strong>和食</strong></h2>
-                <p>ヘルシーに済ませたいあなたには和食がオススメ！一汁三菜の定食メニューだとなおバランスよし。</p>
-            </div>
-            <div class="result resultB">
-                <h2>あなたにオススメの昼食は...<br><strong>ファストフード</strong></h2>
-                <p>手軽にお腹を満たしたいあなたにはファストフードがオススメ！牛丼やハンバーガーでお腹を満たしましょう。</p>
-            </div>
-            <div class="result resultC">
-                <h2>あなたにオススメの昼食は...<br><strong>中華</strong></h2>
-                <p>こってり満腹メニューを食べたいあなたには中華がオススメ！胃もたれが心配なときはウーロン茶を添えて。</p>
-            </div>
-            <div class="result resultD">
-                <h2>あなたにオススメの昼食は...<br><strong>自炊</strong></h2>
-                <p>安くヘルシーに済ませたいあなたには自炊がオススメ！頑張ってお弁当を作りましょう。</p>
-            </div>
+                  </h4>
+                </div>
+                <div class="result resultA">
+                    <h2>あなたにオススメの政党は...<br><strong>日本共産党・れいわ新撰組・社民党</strong></h2>
+                    <p>消費税の減税や社会福祉に前向き。憲法9条などの改正に反対</p>
+                </div>
+                <div class="result resultB">
+                    <h2>あなたにオススメの政党は...<br><strong>立憲民主党・国民民主党</strong></h2>
+                    <p>成長と分配のバランスを。福祉政策などよりは労働者向けの政策</p>
+                </div>
+                <div class="result resultC">
+                    <h2>あなたにオススメの政党は...<br><strong>自由民主党・公明党</strong></h2>
+                    <p>現与党。夫婦別姓には反対。分配より経済成長が優先課題</p>
+                </div>
+                <div class="result resultD">
+                    <h2>あなたにオススメの政党は...<br><strong>日本維新の会</strong></h2>
+                    <p>現政権的なものへの反対が多い</p>
+                </div>
 
+            </div>
         </div>
+      </div>
+    </div>
 
     </body>
-
-</html>

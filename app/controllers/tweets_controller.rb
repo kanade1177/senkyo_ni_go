@@ -5,20 +5,22 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc)
-    
+
 
   end
 
   def show
     @tweet = Tweet.find(params[:id])
     @user = @tweet.user
+    @comment = Comment.new
+    @comments = @tweet.comments.order(created_at: :desc)
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
-    
-    
+
+
     if @tweet.save
       redirect_to tweets_path
     else

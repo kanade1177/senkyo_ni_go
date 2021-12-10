@@ -29,5 +29,15 @@
     <%= f.label :" ", class:"col-3" %>
     <%= f.submit "新規登録", class: "fas fa-user-plus btn btn-outline-dark" %>
   </div>
+
+  <div class="row mt-2">
+    <h4><span style="margin-left:50px">既に登録済の方</span></h4>
+  </div>
+
+  <div class="row">
+    <span style="margin-left:80px"><%= link_to "こちら", login_path, class: "signin-link" %>    からログインしてください。</span>
+  </div>
+
+
   <% end %>
 </div>
