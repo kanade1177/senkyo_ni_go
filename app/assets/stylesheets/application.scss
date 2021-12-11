@@ -16,26 +16,15 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
-//  .image {
-//   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-//   width: 100px;  /* 縦横を同じ値にする */
-//   height: 100px;  /* 縦横を同じ値にする */
-//   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
-// }
 
-// .pagination>li>a {
-//   border: none;     /*枠線をなくす*/
-//   color: #696969;   /*文字の色を変える*/
-// }
+ header{
+  background-color: white;
+ }
 
-// /* 表示しているページ番号のデザイン */
-// .pagination>.active>a {
-//   background: #93c9ff;     /*背景の色を変える*/
-//   border-radius: 15px;     /*角を丸くする*/
-// }
+ body{
+  background-color: #DDFFFF;
+ }
 
-// /*ホバー時のデザイン*/
-// .pagination>li>a:hover {
-//   border-radius: 15px;    /*角を丸くする*/
-// }
+ .question{
+  background-color: white;
+ }
