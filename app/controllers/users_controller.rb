@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
   before_action :correct_user, only: [:edit]
 
   def new
@@ -52,4 +52,3 @@ class UsersController < ApplicationController
   end
 
 end
-

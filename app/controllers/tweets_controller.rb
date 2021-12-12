@@ -1,13 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :correct_tweet,only: [:edit]
+  before_action :correct_tweet, only: [:edit]
   def new
     @tweet = Tweet.new
   end
 
   def index
     @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc)
-
-
   end
 
   def show
@@ -20,7 +18,6 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
-
 
     if @tweet.save
       redirect_to tweets_path
@@ -60,11 +57,9 @@ class TweetsController < ApplicationController
   end
 
   def correct_tweet
-        @tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
     unless @tweet.user.id == current_user.id
-      redirect_to tweet_path
+      redirect_to tweets_path
     end
-end
-
-
+  end
 end

@@ -1,113 +1,115 @@
-    <script>
-    $(function(){
+<script>
+  $(function(){
 
-        $("button").click(function(){
+    $("button").click(function(){
 
-            $(".result").hide();
+      $(".result").hide();
 
 
-            var qNum = $("ul li").length;
+      var qNum = $("li").length;
 
-            if( $("ul li input:checked").length < qNum ){
+      if( $("li input:checked").length > qNum ){
 
-                alert("未回答の問題があります");
-            } else {
+          alert("未回答の問題があります");
+      } else {
 
-                var typeANum = $(".typeA:checked").length,
-                    typeBNum = $(".typeB:checked").length,
-                    typeCNum = $(".typeC:checked").length,
-                    typeDNum = $(".typeD:checked").length;
-                if( typeANum >= typeBNum && typeANum >= typeCNum && typeANum >= typeDNum ) {
+          var typeANum = $(".typeA:checked").length,
+              typeBNum = $(".typeB:checked").length,
+              typeCNum = $(".typeC:checked").length,
+              typeDNum = $(".typeD:checked").length;
+          if( typeANum >= typeBNum && typeANum >= typeCNum && typeANum >= typeDNum ) {
 
-                    $(".resultA").fadeIn();
-                } else if( typeBNum >= typeANum && typeBNum >= typeCNum && typeBNum >= typeDNum ) {
+              $(".resultA").fadeIn();
+          } else if( typeBNum >= typeANum && typeBNum >= typeCNum && typeBNum >= typeDNum ) {
 
-                    $(".resultB").fadeIn();
-                } else if( typeCNum >= typeANum && typeCNum >= typeBNum && typeCNum >= typeDNum ) {
+              $(".resultB").fadeIn();
+          } else if( typeCNum >= typeANum && typeCNum >= typeBNum && typeCNum >= typeDNum ) {
 
-                    $(".resultC").fadeIn();
-                } else if( typeDNum >= typeBNum && typeDNum >= typeCNum && typeDNum >= typeANum ) {
+              $(".resultC").fadeIn();
+          } else if( typeDNum >= typeBNum && typeDNum >= typeCNum && typeDNum >= typeANum ) {
 
-                    $(".resultD").fadeIn();
-                }
-            }
-        });
-    })
+              $(".resultD").fadeIn();
+          }
+      }
+    });
+  })
 </script>
 
 
 
-    <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-            <div id="wrapper">
 
-                <div class="question mt-4">
-                    <h1>あなたにおすすめの政党は？</h1>
-                    <ul>
-                        <li>
-                            <span>Q1. 憲法改正に前向きである</span>
-                            <label><input type="radio" name="q01" class="typeB typeC"> YES</label>
-                            <label><input type="radio" name="q01" class="typeA typeD"> NO</label>
-                        </li>
-                        <li>
-                            <span>Q2. 現状に満足である</span>
-                            <label><input type="radio" name="q02" class="typeB typeD"> YES</label>
-                            <label><input type="radio" name="q02" class="typeA typeC"> NO</label>
-                        </li>
-                        <li>
-                            <span>Q3. 成長より分配である</span>
-                            <label><input type="radio" name="q03" class="typeB typeC"> YES</label>
-                            <label><input type="radio" name="q03" class="typeA typeD"> NO</label>
-                        </li>
-                        <li>
-                            <span>Q4. 夫婦別姓に賛成</span>
-                            <label><input type="radio" name="q04" class="typeB typeD"> YES</label>
-                            <label><input type="radio" name="q04" class="typeA typeC"> NO</label>
-                        </li>
-                        <li>
-                            <span>Q5. 消費税増税は反対</span>
-                            <label><input type="radio" name="q05" class="typeA typeD"> YES</label>
-                            <label><input type="radio" name="q05" class="typeB typeC"> NO</label>
-                        </li>
-                    </ul>
-                    <button>診断する</button>
-                    <small>
-                      <%= link_to "結果をツイート！", signup_path, class: "btn btn-outline-dark ml-4" %>
-                    </small>
-                </div>
 
-                <div class="second title mt-4">
-                  <h4>この診断で出てくる投票先は以下の政党が候補です(*回答は必ずしも各政党の政策と同じではありません。<br>
-                  是非各政党のHPで政策を確認してみましょう！)
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <div id="wrapper">
 
-                  </h4>
-                </div>
-                <div class="result resultA">
-                    <h2>あなたにオススメの政党は...<br><strong>日本共産党・れいわ新撰組・社民党</strong></h2>
-                    <p>消費税の減税や社会福祉に前向き。憲法9条などの改正に反対</p>
-                </div>
-                <div class="result resultB">
-                    <h2>あなたにオススメの政党は...<br><strong>立憲民主党・国民民主党</strong></h2>
-                    <p>成長と分配のバランスを。福祉政策などよりは労働者向けの政策</p>
-                </div>
-                <div class="result resultC">
-                    <h2>あなたにオススメの政党は...<br><strong>自由民主党・公明党</strong></h2>
-                    <p>現与党。夫婦別姓には反対。分配より経済成長が優先課題</p>
-                </div>
-                <div class="result resultD">
-                    <h2>あなたにオススメの政党は...<br><strong>日本維新の会</strong></h2>
-                    <p>現政権的なものへの反対が多い</p>
-                </div>
-
+            <div class="question mt-4">
+                <h1>あなたにおすすめの政党は？</h1>
+                <ul>
+                    <li>
+                        <span>Q1. 憲法改正に前向きである</span>
+                        <label><input type="radio" name="q01" class="typeB typeC"> YES</label>
+                        <label><input type="radio" name="q01" class="typeA typeD"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q2. 現状に満足である</span>
+                        <label><input type="radio" name="q02" class="typeB typeD"> YES</label>
+                        <label><input type="radio" name="q02" class="typeA typeC"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q3. 成長より分配である</span>
+                        <label><input type="radio" name="q03" class="typeB typeC"> YES</label>
+                        <label><input type="radio" name="q03" class="typeA typeD"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q4. 夫婦別姓に賛成</span>
+                        <label><input type="radio" name="q04" class="typeB typeD"> YES</label>
+                        <label><input type="radio" name="q04" class="typeA typeC"> NO</label>
+                    </li>
+                    <li>
+                        <span>Q5. 消費税増税は反対</span>
+                        <label><input type="radio" name="q05" class="typeA typeD"> YES</label>
+                        <label><input type="radio" name="q05" class="typeB typeC"> NO</label>
+                    </li>
+                </ul>
+                <button>診断する</button>
+                <small>
+                  <%= link_to "結果をツイート！", signup_path, class: "btn btn-outline-dark ml-4" %>
+                </small>
             </div>
-        </div>
-        <div class="col-md-4">
-           <%= image_tag "kokuban.jpg", alt: "Human", id: "assets", class: "image", width: "620px" %>
-           <%= image_tag "kokkai.jpg", alt: "Kokkai", id: "assets", class: "image", width: "620px" %>
-        </div>
-      </div>
-    </div>
 
-    </body>
+            <div class="second title mt-4">
+              <h4>この診断で出てくる投票先は以下の政党が候補です(*回答は必ずしも各政党の政策と同じではありません。<br>
+              是非各政党のHPで政策を確認してみましょう！)
+
+              </h4>
+            </div>
+            <div class="result resultA">
+                <h2>あなたにオススメの政党は...<br><strong>日本共産党・れいわ新撰組・社民党</strong></h2>
+                <p>消費税の減税や社会福祉に前向き。憲法9条などの改正に反対</p>
+            </div>
+            <div class="result resultB">
+                <h2>あなたにオススメの政党は...<br><strong>立憲民主党・国民民主党</strong></h2>
+                <p>成長と分配のバランスを。福祉政策などよりは労働者向けの政策</p>
+            </div>
+            <div class="result resultC">
+                <h2>あなたにオススメの政党は...<br><strong>自由民主党・公明党</strong></h2>
+                <p>現与党。夫婦別姓には反対。分配より経済成長が優先課題</p>
+            </div>
+            <div class="result resultD">
+                <h2>あなたにオススメの政党は...<br><strong>日本維新の会</strong></h2>
+                <p>現政権的なものへの反対が多い</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4 mt-4">
+       <%= image_tag "kokuban.jpg", alt: "Human", id: "assets", class: "image", width: "620px" %>
+       <%= image_tag "kokkai.jpg", alt: "Kokkai", id: "assets", class: "image", width: "620px" %>
+    </div>
+  </div>
+</div>
+
+</body>

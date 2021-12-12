@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-
-
   root to: "homes#top"
 
   resources :users, only: [:index, :show, :create, :edit, :update] do
@@ -23,10 +20,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-
   get "chat/:id", to: "chats#show", as: "chat"
   resources :chats, only: [:create, :show]
 
   resources :notifications, only: [:index, :destroy]
-
 end

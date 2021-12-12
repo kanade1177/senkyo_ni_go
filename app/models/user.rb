@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_secure_password
 
   attachment :image
@@ -8,10 +7,10 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
-  #自分がフォローしているユーザー関係
+  # 自分がフォローしているユーザー関係
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id, dependent: :destroy
   has_many :followings, through: :active_relationships, source: :follower
-  #自分がフォローされているユーザー関係
+  # 自分がフォローされているユーザー関係
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :following
 
@@ -22,7 +21,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true, length: { minimum: 1, maximum: 160 }, on: :update
-
 
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
@@ -38,5 +36,4 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 end

@@ -2,8 +2,8 @@ class Room < ApplicationRecord
   has_many :chats
   has_many :user_rooms
   has_many :notifications, dependent: :destroy
-  
-  #DM通知
+
+  # DM通知
   def create_notification_chat!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, "chat"])
     if temp.blank?
@@ -12,11 +12,10 @@ class Room < ApplicationRecord
         action: "chat"
       )
       if notification.visiter_id == notification.visited_id
-                notification.checked = true
+        notification.checked = true
       end
 
       notification.save if notification.valid?
     end
   end
-
 end

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.tweet_id = @tweet.id
     if @comment.save
-      @tweet = @comment.tweet #通知機能
+      @tweet = @comment.tweet # 通知機能
       @tweet.create_notification_by(current_user)
     end
   end
@@ -22,4 +22,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :tweet_id, :user_id)
   end
 end
-
