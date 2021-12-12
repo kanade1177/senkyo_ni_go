@@ -1,9 +1,10 @@
-<!--<#% if @user.errors.any? %>-->
-<!--  <p class="mt-3 text-center"><#%= @user.errors.count %>件のエラーが発生しました</p>-->
-<!--  <#% @user.errors.full_messages.each do |message| %>-->
-<!--    <li class="devise-error-messages text-center"><#%= message %></li>-->
-<!--  <#% end %>-->
-<!--<#% end %>-->
+<% if @user.errors.any? %>
+  <p class="mt-3 text-center"><%= @user.errors.count %>件のエラーが発生しました</p>
+  <% @user.errors.full_messages.each do |message| %>
+    <li class="devise-error-messages text-center"><%= message %></li>
+  <% end %>
+<% end %>
+
 <%= form_with model: @user, local:true do |f| %>
 <body>
  <main>

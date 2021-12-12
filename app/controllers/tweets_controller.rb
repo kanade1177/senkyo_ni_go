@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :correct_tweet,only: [:edit]
   def new
     @tweet = Tweet.new
   end
@@ -57,5 +58,13 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :body, :category_id)
   end
+
+  def correct_tweet
+        @tweet = Tweet.find(params[:id])
+    unless @tweet.user.id == current_user.id
+      redirect_to tweet_path
+    end
+end
+
 
 end

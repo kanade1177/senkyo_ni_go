@@ -4,9 +4,10 @@ class CommentsController < ApplicationController
     @comment = @tweet.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.tweet_id = @tweet.id
-    @comment.save
-     
-    
+    if @comment.save
+      @tweet = @comment.tweet #通知機能
+      @tweet.create_notification_by(current_user)
+    end
   end
 
   def destroy
