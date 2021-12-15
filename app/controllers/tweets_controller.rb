@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @user = @tweet.user
     @comment = Comment.new
-    @comments = @tweet.comments.order(created_at: :desc)
+    @comments = @tweet.comments.order(created_at: :desc) #降順
   end
 
   def create
