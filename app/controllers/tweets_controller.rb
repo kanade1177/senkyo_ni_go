@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc)
+    @tweets = Tweet.page(params[:page]).reverse_order.order(created_at: :desc) #降順
   end
 
   def show
