@@ -2,11 +2,13 @@ class CommentsController < ApplicationController
   def create
     @tweet = Tweet.find(params[:tweet_id])
     @comment = @tweet.comments.build(comment_params)
-    @comment.user_id = current_user.id
+    #コメントしたユーザーのIDとログインしているユーザーのIDの照合
+    @comment.user_id = current_user.id 
+    #コメントされたツイートのIDとログインユーザーのID照合
     @comment.tweet_id = @tweet.id
     if @comment.save
       @tweet = @comment.tweet # 通知機能
-      @tweet.create_notification_by(current_user)
+      @tweet.create_notification_by(current_user) #ログインしているユーザーによる通知の作成
     end
   end
 
