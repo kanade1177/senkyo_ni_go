@@ -1,9 +1,10 @@
 class ChatsController < ApplicationController
   def show
     @user = User.find(params[:id])
+    #ログインしているユーザーのルームIDを返す
     rooms = current_user.user_rooms.pluck(:room_id)
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
-    # チャットルームの有無の確認
+    # チャットルームの有無の確認。なければ新規に作成。
     if user_rooms.nil?
       @room = Room.new
       @room.save
@@ -19,9 +20,11 @@ class ChatsController < ApplicationController
   end
 
   def create
+    #DMの作成
     @chat = current_user.chats.new(chat_params)
     if @chat.save
       @room = @chat.room
+      #
       @room.create_notification_chat!(current_user)
     end
   end

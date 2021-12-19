@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_action :correct_user, only: [:edit]
 
   def new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      render action: "new"
+      render :new
     end
   end
 

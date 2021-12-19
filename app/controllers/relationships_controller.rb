@@ -5,6 +5,7 @@ class RelationshipsController < ApplicationController
       @user = User.find(params[:user_id])
       @user.create_notification_follow!(current_user)
     end
+    #遷移前のページをリダイレクト
     redirect_to request.referer
   end
 
