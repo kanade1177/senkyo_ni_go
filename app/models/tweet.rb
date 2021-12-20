@@ -18,6 +18,7 @@ class Tweet < ApplicationRecord
       visited_id: user_id,
       action: "comment"
     )
+    #自分のツイートに対するコメントの場合は通知ずみにする
     if notification.visiter_id == notification.visited_id
       notification.checked = true
     end
