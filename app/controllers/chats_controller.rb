@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
     if user_rooms.nil?
       @room = Room.new
       @room.save
-      # ユーザーの確認
+      # ユーザーの確認。ログインユーザーと相手方のユーザー両方を設定
       UserRoom.create(user_id: @user.id, room_id: @room.id)
       UserRoom.create(user_id: current_user.id, room_id: @room.id)
     else
