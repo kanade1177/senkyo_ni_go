@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  #ユーザーの入力したパスワードと確認用パスワードを格納するため
   has_secure_password
 
   attachment :image
