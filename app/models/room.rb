@@ -8,6 +8,7 @@ class Room < ApplicationRecord
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, "chat"])
     if temp.blank?
       notification = current_user.active_notifications.new(
+
         visited_id: id,
         action: "chat"
       )
