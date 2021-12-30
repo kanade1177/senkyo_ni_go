@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction, :image)
   end
-　#URL直打ち
+　#URL直打ち禁止
   def correct_user
     @user = User.find(params[:id])
     if current_user.id != @user.id
