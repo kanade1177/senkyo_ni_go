@@ -12,7 +12,7 @@ module NotificationsHelper
     #フォロー、DM（チャット）、いいね、コメントの通知内容切り分け
     case notification.action
     when "follow" then
-      tag.a(notification.visiter.name, href: user_path(@visiter)) + "があなたをフォローしました"
+      tag.a(notification.visiter.name, href: user_path(@visiter)) + "があなたをフォローしました"#tag.aでリンク化
     when "chat" then
       tag.a(notification.visiter.name, href: user_path(@visiter)) + "からあなたにメッセージがあります"
     when "favorite" then
