@@ -3,7 +3,7 @@ class Room < ApplicationRecord
   has_many :user_rooms
   has_many :notifications, dependent: :destroy
 
-  # DM通知
+  #DM通知
   def create_notification_chat!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, "chat"])
     if temp.blank?
