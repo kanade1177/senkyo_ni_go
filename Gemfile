@@ -68,5 +68,6 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari', '~> 1.2.1'
 gem 'pry-rails'
+#デフォルト言語を日本語に
 gem 'rails-i18n'
 gem 'rubocop-airbnb'
