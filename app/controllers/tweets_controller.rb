@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   end
 
   def index
+    #includesメソッドによるN+1問題の解決
     @tweets = Tweet.includes([:user]).page(params[:page]).reverse_order.order(created_at: :desc) #降順
   end
 
