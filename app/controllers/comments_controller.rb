@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @comment = @tweet.comments.build(comment_params)
     #コメントしたユーザーのIDとログインしているユーザーのIDの照合
-    @comment.user_id = current_user.id 
+    @comment.user_id = current_user.id
     #コメントされたツイートのIDとログインユーザーのID照合
     @comment.tweet_id = @tweet.id
     if @comment.save

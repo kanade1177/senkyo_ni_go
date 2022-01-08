@@ -2,7 +2,7 @@
 <%= tweet.comments.count %>件のコメント
 <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
 <ul>
-<% tweet.comments.first(2).each do | comment | %>
+<% tweet.comments.includes([:user]).first(2).each do | comment | %>
  <% unless comment.id.nil? %>
   <li class="comment-container">
     <div class="comment-box">
@@ -34,7 +34,7 @@
 <!--２件以降を表示(もっと見るを押すと出てくる)-->
 <ul class="collapse" id="collapseExample">
   <% if tweet.comments.count >= 3 %>
-    <% tweet.comments.offset(2).each do | comment | %>
+    <% tweet.comments.includes([:user]).offset(2).each do | comment | %>
       <li class="comment-container">
         <div class="comment-box">
           <div calss="comment-avatar">
