@@ -34,6 +34,7 @@
 <!--２件以降を表示(もっと見るを押すと出てくる)-->
 <ul class="collapse" id="collapseExample">
   <% if tweet.comments.count >= 3 %>
+    <!--N＋1問題の解決-->
     <% tweet.comments.includes([:user]).offset(2).each do | comment | %>
       <li class="comment-container">
         <div class="comment-box">
