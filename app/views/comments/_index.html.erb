@@ -2,6 +2,7 @@
 <%= tweet.comments.count %>件のコメント
 <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
 <ul>
+<!--N＋1問題の解決-->
 <% tweet.comments.includes([:user]).first(2).each do | comment | %>
  <% unless comment.id.nil? %>
   <li class="comment-container">
